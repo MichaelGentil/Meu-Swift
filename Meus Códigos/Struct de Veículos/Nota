@@ -1,0 +1,37 @@
+Struct de Veículos
+
+struct Veiculo{
+    var modelo: String
+    var ano: Int
+    var cor: String
+    var motor: Double
+    var portas: Int
+}
+
+var veiculos = [
+    Veiculo(modelo:"Camaro", ano:1967, cor:"Vermelo vinho", motor:1.0, portas: 2),
+    Veiculo(modelo:"Lancer", ano:2012, cor:"Cinza", motor:1.0, portas: 4)
+]
+var novoCarro = Veiculo(modelo:"Porshe", ano:2022, cor:"Amarelo", motor:1.0, portas: 2)
+veiculos.insert(novoCarro, at:2)
+
+var outroCarro = Veiculo(modelo:"Classic", ano:2009, cor:"Cinza", motor:1.0, portas: 4)
+veiculos.insert(outroCarro, at:3)
+
+var meuCarroQuebrado = Veiculo(modelo:"Celta", ano:2013, cor:"Vermelho", motor:1.0, portas: 4)
+veiculos.insert(meuCarroQuebrado, at:0)
+
+print("Estão desponiveis os modelos:")
+
+let veiculosOrdenadosPorNumeroDePortas = veiculos.sorted { v1, v2 in
+    return v1.portas < v2.portas
+}
+
+for veiculo in veiculosOrdenadosPorNumeroDePortas {
+    print("Modelo: \(veiculo.modelo)")
+    print("Cor: \(veiculo.cor)")
+    print("Motor: \(veiculo.motor)")
+    print("Ano: \(veiculo.ano)")
+    print("\(veiculo.portas) Portas")
+    print("")
+}
