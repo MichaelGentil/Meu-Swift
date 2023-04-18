@@ -1,0 +1,240 @@
+Desafio do Foundation
+Dia 28
+
+Aluguel de Casas
+EQUIPE 5 E 6
+
+- Uma casa possui endereço, cidade, quantidade de quartos e preço da diária. (1)
+R:
+____________________________________
+
+struct House {
+    var address: String
+    var city: String
+    var numberOfRooms: Int
+    var price: Double
+}
+
+let houses = [
+    House(address: "Av. Cásper Líbero", city: "São Paulo", numberOfRooms: 2, price: 1500.00),
+    House(address: "R. Antônio Basílio", city: "Rio de Janeiro", numberOfRooms: 3, price: 2500.00),
+    House(address: "R. Anne Frank", city: "Curitiba", numberOfRooms: 4, price: 3500.00),
+    House(address: "R. Araruama", city: "Belo Horizonte", numberOfRooms: 3, price: 2000.00),
+    House(address: "R. Vidal Ramos", city: "Florianópolis", numberOfRooms: 2, price: 1800.00),
+    House(address: "Av. Ipiranga", city: "Porto Alegre", numberOfRooms: 1, price: 1000.00)
+]
+
+____________________________________
+- Adicionar e Remover casas. (2)
+R:
+____________________________________
+
+struct House {
+    var address: String
+    var city: String
+    var numberOfRooms: Int
+    var price: Double
+}
+
+// Crie uma matriz de casas
+var houses = [
+    House(address: "Av. Cásper Líbero", city: "São Paulo", numberOfRooms: 2, price: 1500.00),
+    House(address: "R. Antônio Basílio", city: "Rio de Janeiro", numberOfRooms: 3, price: 2500.00),
+    House(address: "R. Anne Frank", city: "Curitiba", numberOfRooms: 4, price: 3500.00),
+    House(address: "R. Araruama", city: "Belo Horizonte", numberOfRooms: 3, price: 2000.00),
+    House(address: "R. Vidal Ramos", city: "Florianópolis", numberOfRooms: 2, price: 1800.00),
+    House(address: "Av. Ipiranga", city: "Porto Alegre", numberOfRooms: 1, price: 1000.00)
+]
+
+var novaCasa = House(address: "R. Portiundos", city: "Porto Alegre", numberOfRooms: 1, price: 800.00)
+
+houses.insert(novaCasa, at:0)
+houses.remove(at: 1)
+print("Lista de casas:")
+
+for house in houses {
+    print("Address: \(house.address)")
+    print("City: \(house.city)")
+    print("Number of rooms: \(house.numberOfRooms)")
+    print("Price: \(house.price)")
+    print("")
+}
+____________________________________
+- Listas toda as casas. (3)
+R:
+____________________________________
+
+struct House {
+    var address: String
+    var city: String
+    var numberOfRooms: Int
+    var price: Double
+}
+
+// Crie uma matriz de casas
+let houses = [
+    House(address: "Av. Cásper Líbero", city: "São Paulo", numberOfRooms: 2, price: 1500.00),
+    House(address: "R. Antônio Basílio", city: "Rio de Janeiro", numberOfRooms: 3, price: 2500.00),
+    House(address: "R. Anne Frank", city: "Curitiba", numberOfRooms: 4, price: 3500.00),
+    House(address: "R. Araruama", city: "Belo Horizonte", numberOfRooms: 3, price: 2000.00),
+    House(address: "R. Vidal Ramos", city: "Florianópolis", numberOfRooms: 2, price: 1800.00),
+    House(address: "Av. Ipiranga", city: "Porto Alegre", numberOfRooms: 1, price: 1000.00)
+]
+
+for house in houses {
+    print("Address: \(house.address)")
+    print("City: \(house.city)")
+    print("Number of rooms: \(house.numberOfRooms)")
+    print("Price: \(house.price)")
+    print("")
+}
+____________________________________
+
+- Buscar casas pela cidade, pelo número de quartos e preço. (4)
+R:
+____________________________________
+
+// Defina a estrutura da casa com as propriedades necessárias
+struct House {
+    var address: String
+    var city: String
+    var numberOfRooms: Int
+    var price: Double
+}
+
+// Crie uma matriz de casas
+let houses = [
+    House(address: "Av. Cásper Líbero", city: "São Paulo", numberOfRooms: 2, price: 1500.00),
+    House(address: "R. Antônio Basílio", city: "Rio de Janeiro", numberOfRooms: 3, price: 2500.00),
+    House(address: "R. Anne Frank", city: "Curitiba", numberOfRooms: 4, price: 3500.00),
+    House(address: "R. Araruama", city: "Belo Horizonte", numberOfRooms: 3, price: 2000.00),
+    House(address: "R. Vidal Ramos", city: "Florianópolis", numberOfRooms: 2, price: 1800.00),
+    House(address: "Av. Ipiranga", city: "Porto Alegre", numberOfRooms: 1, price: 1000.00)
+  
+]
+
+// Filtra a cidade, número de quartos e o preço do local
+
+let filteredHouses = houses.filter { house in
+    house.city == "Porto Alegre" &&
+    house.numberOfRooms <= 4 &&
+    house.price < 2000.00
+}
+
+// Imprime todos os locais do filtro
+
+for house in filteredHouses {
+    print("Address: \(house.address)")
+    print("City: \(house.city)")
+    print("Number of rooms: \(house.numberOfRooms)")
+    print("Price: \(house.price)")
+    print("")
+}
+____________________________________
+
+- Calcular o orçamento de uma casa dada um número de dias. (5)
+R:
+____________________________________
+
+// Defina a estrutura da casa com as propriedades necessárias
+struct House {
+    var address: String
+    var city: String
+    var numberOfRooms: Int
+    var price: Double
+}
+
+// Crie uma matriz de casas
+let houses = [
+    House(address: "Av. Cásper Líbero", city: "São Paulo", numberOfRooms: 2, price: 1500.00),
+    House(address: "R. Antônio Basílio", city: "Rio de Janeiro", numberOfRooms: 3, price: 2500.00),
+    House(address: "R. Anne Frank", city: "Curitiba", numberOfRooms: 4, price: 3500.00),
+    House(address: "R. Araruama", city: "Belo Horizonte", numberOfRooms: 3, price: 2000.00),
+    House(address: "R. Vidal Ramos", city: "Florianópolis", numberOfRooms: 2, price: 1800.00),
+    House(address: "Av. Ipiranga", city: "Porto Alegre", numberOfRooms: 1, price: 1000.00)
+  
+]
+
+// Defina uma função para calcular o orçamento dado o número de dias
+func calculateBudget(for house: House, numberOfDays: Int) -> Double {
+    return house.price * Double(numberOfDays)
+}
+
+// Filtra a cidade, número de quartos, preço e número de dias
+let filteredHouses = houses.filter { house in
+    house.city == "Porto Alegre" &&
+    house.numberOfRooms <= 4 &&
+    house.price < 2000.00 &&
+    calculateBudget(for: house, numberOfDays: 10) < 15000.00
+}
+
+// Imprime todos os locais do filtro
+for house in filteredHouses {
+    let numberOfDays = 4 // determina o número de dias do orçamento
+    let budget = calculateBudget(for: house, numberOfDays: numberOfDays)
+    print("Endereço: \(house.address)")
+    print("Cidade: \(house.city)")
+    print("Número de Quartos: \(house.numberOfRooms)")
+    print("Preço: \(house.price)")
+    print("O orçamento para \(numberOfDays) dias é R$\(budget)")
+    print("")
+}
+____________________________________
+- Calcular o orçamento de uma casa dado um data de inicio e uma data de fim. (6)
+R:
+____________________________________
+
+// Defina a estrutura da casa com as propriedades necessárias
+struct House {
+    var address: String
+    var city: String
+    var numberOfRooms: Int
+    var price: Double
+    var startDate: Date
+    var endDate: Date
+}
+
+// Criação do dia de início ao fim, porém, está fixado em determinado dia, mês e ano
+let startDate = Calendar.current.date(from: DateComponents(year: 2023, month: 5, day: 3))!
+let endDate = Calendar.current.date(from: DateComponents(year: 2023, month: 8, day: 3))!
+
+// Crie uma matriz de casas
+let houses = [
+    House(address: "Av. Cásper Líbero", city: "São Paulo", numberOfRooms: 2, price: 1500.00, startDate: startDate, endDate: endDate),
+    House(address: "R. Antônio Basílio", city: "Rio de Janeiro", numberOfRooms: 3, price: 2500.00, startDate: startDate, endDate: endDate),
+    House(address: "R. Anne Frank", city: "Curitiba", numberOfRooms: 4, price: 3500.00, startDate: startDate, endDate: endDate),
+    House(address: "R. Araruama", city: "Belo Horizonte", numberOfRooms: 3, price: 2000.00, startDate: startDate, endDate: endDate),
+    House(address: "R. Vidal Ramos", city: "Florianópolis", numberOfRooms: 2, price: 1800.00, startDate: startDate, endDate: endDate),
+    House(address: "Av. Ipiranga", city: "Porto Alegre", numberOfRooms: 1, price: 1000.00, startDate: startDate, endDate: endDate)
+]
+
+//Filtra o valor do preço da casa e multiplica pela quantidade de dias determinada
+func calculateBudget(for house: House, numberOfDays: Int) -> Double {
+    return house.price * Double(numberOfDays)
+}
+
+
+// Filtra a cidade, número de quartos e o preço do local
+let filteredHouses = houses.filter { house in
+    house.city == "Porto Alegre" &&
+    house.numberOfRooms <= 4 &&
+    house.price < 2000.00 &&
+    house.startDate <= startDate && house.endDate >= endDate &&
+    calculateBudget(for: house, numberOfDays: 10) < 15000.00 // Filtra o valor de dias em menos de um valor determinado
+}
+
+print(filteredHouses.count)
+// Imprime todos os locais do filtro
+for house in filteredHouses {
+    let numberOfDays = 4 // determina o número de dias do orçamento
+    let budget = calculateBudget(for: house, numberOfDays: numberOfDays)
+    print("Endereço: \(house.address)")
+    print("Cidade: \(house.city)")
+    print("Número de Quartos: \(house.numberOfRooms)")
+    print("Preço: \(house.price)")
+    print("Data de Início: \(house.startDate)")
+    print("Data de Fim: \(house.endDate)")
+    print("O orçamento para \(numberOfDays) dias é R$\(budget)")
+    print("")
+}
+____________________________________
