@@ -1,58 +1,94 @@
-Atividade dia 14 Condicionais e Loops
+Atividade dia 07 Funções
 Questão 4 a 7
-* Quais tipos de condicionais existem em Swift?
-R: Existem três tipos de condicionais em Swift:
 
-- “if” (se) - verifica se uma condição é verdadeira, e executa o bloco de código correspondente se for verdadeiro.
-- “guard” - usado para verificar se certas condições são atendidas, caso contrário ele encerra o escopo atual.
-- “switch” (caso) - usada para executar diferentes ações com base em diferentes valores ou condições.
+* Como retornar valores implicitamente em Swift?
+R: Planeta.mercurio tem um valor bruto explícito de 1, Planeta.venus tem um valor bruto implícito de 2 e assim por diante, e outro valor implícito em ApontarBussola. 
 
-* Como eu uso cada tipo de condicional?
-R: Existem três tipos de condicionais em Swift: if, switch e guard. Cada um é utilizado de maneiras diferentes:
+enum Planeta: Int {
+   case mercurio = 1, venus, terra, marte, jupiter, saturno, urano, netuno
+}
+enum ApontarBussola: String {
+   case norte, sul, este, oeste
+}
+let earthsOrder = Planeta.terra.rawValue
+// ordem da terra é 3
 
-1. If: é utilizado para verificar uma condição e executar um determinado bloco de código se a condição for verdadeira
-2. Switch: é utilizado para verificar uma expressão e executar diferentes blocos de código com base no valor dessa expressão
-3. Guard: é utilizado para verificar uma condição e sair de um bloco de código caso essa condição não seja verdadeira
+let sunsetDirection = ApontarBussola.oeste.rawValue
+// direção do pôr do sol é "oeste"
 
-* Quando eu devo usar cada tipo de condicional?
-R: 
-1. If: É usado para testar uma única condição e executar um bloco de código se a condição for verdadeira. É útil para condições simples e únicas.
+// Você acessa o valor de um caso de enumeração com o seu rawValue
 
-Exemplo:
-if idade >= 18 {
-    print("Você pode votar.")
+let possivelPlaneta = Planeta(rawValue: 7)
+// possívelPlaneta é do tipo Planeta? e é igual a Planet.urano. Este exemplo identifica Urano a partir de seu valor bruto de 7
+
+// Se você definir uma enumeração com um tipo de valor bruto, a enumeração receberá automaticamente um inicializador que usa um valor do tipo do valor bruto (como um parâmetro chamado rawValue) e retorna um caso de enumeração case ou nil. Você pode usar esse inicializador para tentar criar uma nova instância da enumeração.
+
+https://mateusrodrigues.xyz/swift-book/documentation/the-swift-programming-language/enumerations
+
+* Qual a diferença entre funções declaradas em uma classe e uma struct em Swift?
+R: No Swift, uma classe e uma struct são usadas para definir tipos de dados personalizados, mas possuem algumas diferenças em seu comportamento e uso.
+As funções declaradas em uma classe e em uma estrutura podem ter comportamentos diferentes em termos de gerenciamento de memória e herança.
+
+- Gerenciamento de memória: No Swift, as classes são tipos de referência, o que significa que, ao criar uma instância de uma classe, você está criando uma referência a uma única instância dessa classe. Quaisquer alterações feitas nessa instância são refletidas em todas as referências a essa instância. Por outro lado, structs são tipos de valor, o que significa que, ao criar uma instância de um struct, você está criando uma cópia exclusiva desse struct. Quaisquer alterações feitas nessa cópia não são refletidas em outras cópias.
+- Herança: as classes oferecem suporte à herança, o que significa que você pode criar uma nova classe com base em uma classe existente, herdando todas as propriedades e métodos da classe pai. As estruturas, por outro lado, não suportam herança.
+Quando se trata especificamente de funções, tanto classes quanto structs podem declarar funções como métodos. No entanto, existem algumas diferenças em como eles são usados ​​e acessados:
+
+- Controle de acesso: No Swift, você pode declarar o nível de acesso de uma classe ou struct, bem como seus métodos. Por padrão, os métodos em uma classe são declarados como internal, o que significa que podem ser acessados ​​de qualquer arquivo no mesmo módulo. Por outro lado, os métodos em uma struct são declarados como publicpadrão, o que significa que podem ser acessados ​​de qualquer arquivo que importe o módulo.
+- Mutabilidade: quando você declara um método em uma estrutura, pode marcá-lo como mutatingou não. Um método mutante pode modificar as propriedades da estrutura, enquanto um método não mutante não pode. Em uma classe, os métodos podem modificar as propriedades da instância da classe sem serem marcados como mutating.
+No geral, a escolha entre usar uma classe ou struct (e declarar funções em qualquer uma delas) depende dos requisitos específicos de seu aplicativo. Se você precisar de herança ou semântica de referência, talvez queira usar uma classe. Se você precisar de semântica de valor ou um tipo de dados mais simples, um struct pode ser mais apropriado.
+
+* Como sobrescrever um método em Swift? (override)
+R:
+
+import Foundation
+
+struct Point {
+   var x = 0.0, y = 0.0
+   mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+      x += deltaX
+      y += deltaY
+   }
+}
+var somePoint = Point(x: 1.0, y: 1.0)
+somePoint.moveBy(x: 2.0, y: 3.0)
+print("O ponto está agora em (\(somePoint.x), \(somePoint.y))")
+
+https://mateusrodrigues.xyz/swift-book/documentation/the-swift-programming-language/methods
+
+* Como armazenar uma função em uma variável em Swift?
+R: Em Swift, é possível armazenar uma função em uma variável utilizando closures ou funções nomeadas. Veja abaixo como fazer isso:
+
+1. Armazenando uma função em uma variável usando closures:
+
+// Definindo uma função que recebe dois inteiros e retorna a soma deles
+func sum(_ a: Int, _ b: Int) -> Int {
+    return a + b
 }
 
-2. Switch: É usado para testar várias condições e executar diferentes blocos de código para cada condição. É útil para situações onde há vários casos a serem testados.
-
-Exemplo:
-switch diaDaSemana {
-    case "Segunda":
-        print("Hoje é o primeiro dia útil da semana.")
-    case "Sexta":
-        print("É sexta-feira! Finalmente o fim de semana está chegando!")
-    default:
-        print("Não é segunda nem sexta-feira.")
+// Armazenando a função em uma variável usando closures
+let sumFunction = { (a: Int, b: Int) -> Int in
+    return a + b
 }
 
-3. Guard: É usado para fazer verificações de pré-condições em um bloco de código e sair imediatamente se a condição não for atendida. É útil para testar se uma condição é inválida ou para lidar com erros rapidamente.
+// Usando a variável que armazena a função
+let result = sumFunction(2, 3) // O resultado deve ser 5
 
-Exemplo:
-func dividir(divisor: Int, dividendo: Int) -> Int? {
-    // Verificar se o divisor é válido
-    guard divisor != 0 else {
-        print("O divisor não pode ser zero.")
-        return nil
-    }
-    return dividendo / divisor
+2. Armazenando uma função em uma variável usando uma função nomeada:
+
+// Definindo uma função que recebe dois inteiros e retorna a soma deles
+func sum(_ a: Int, _ b: Int) -> Int {
+    return a + b
 }
 
-* O que são loops?
-R: Loops em Swift são estruturas que permitem que um conjunto de instruções seja executado repetidamente até que uma condição seja atendida. O uso de loops é comum em muitos algoritmos e é uma ferramenta poderosa para manipular e processar dados.
+// Definindo uma função nomeada que recebe outra função como parâmetro
+func performOperation(_ operation: (Int, Int) -> Int, _ a: Int, _ b: Int) -> Int {
+    return operation(a, b)
+}
 
-* Quais tipos de loops que existem em Swift?
-R: Existem três tipos de loops em Swift
+// Armazenando a função em uma variável usando a função nomeada
+let sumFunction = sum
 
-1. for loop: executa um conjunto de instruções um número específico de vezes
-2. while loop: executa um conjunto de instruções enquanto uma condição é verdadeira
-3. repeat-while loop: executa um conjunto de instruções pelo menos uma vez e depois verifica a condição para continuar ou interromper a execução
+// Usando a variável que armazena a função
+let result = performOperation(sumFunction, 2, 3) // O resultado deve ser 5
+
+- Note que, em ambos os exemplos, a função é armazenada em uma variável que tem o mesmo tipo da função. No primeiro exemplo, usamos uma closure para definir uma função que tem o mesmo tipo da função sum. No segundo exemplo, usamos uma função nomeada que recebe outra função como parâmetro para armazenar a função sum em uma variável. Depois, usamos a variável que armazena a função para chamá-la com os argumentos necessários.
