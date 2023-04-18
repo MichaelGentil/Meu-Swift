@@ -1,0 +1,58 @@
+Atividade dia 14 Condicionais e Loops
+Questão 4 a 7
+* Quais tipos de condicionais existem em Swift?
+R: Existem três tipos de condicionais em Swift:
+
+- “if” (se) - verifica se uma condição é verdadeira, e executa o bloco de código correspondente se for verdadeiro.
+- “guard” - usado para verificar se certas condições são atendidas, caso contrário ele encerra o escopo atual.
+- “switch” (caso) - usada para executar diferentes ações com base em diferentes valores ou condições.
+
+* Como eu uso cada tipo de condicional?
+R: Existem três tipos de condicionais em Swift: if, switch e guard. Cada um é utilizado de maneiras diferentes:
+
+1. If: é utilizado para verificar uma condição e executar um determinado bloco de código se a condição for verdadeira
+2. Switch: é utilizado para verificar uma expressão e executar diferentes blocos de código com base no valor dessa expressão
+3. Guard: é utilizado para verificar uma condição e sair de um bloco de código caso essa condição não seja verdadeira
+
+* Quando eu devo usar cada tipo de condicional?
+R: 
+1. If: É usado para testar uma única condição e executar um bloco de código se a condição for verdadeira. É útil para condições simples e únicas.
+
+Exemplo:
+if idade >= 18 {
+    print("Você pode votar.")
+}
+
+2. Switch: É usado para testar várias condições e executar diferentes blocos de código para cada condição. É útil para situações onde há vários casos a serem testados.
+
+Exemplo:
+switch diaDaSemana {
+    case "Segunda":
+        print("Hoje é o primeiro dia útil da semana.")
+    case "Sexta":
+        print("É sexta-feira! Finalmente o fim de semana está chegando!")
+    default:
+        print("Não é segunda nem sexta-feira.")
+}
+
+3. Guard: É usado para fazer verificações de pré-condições em um bloco de código e sair imediatamente se a condição não for atendida. É útil para testar se uma condição é inválida ou para lidar com erros rapidamente.
+
+Exemplo:
+func dividir(divisor: Int, dividendo: Int) -> Int? {
+    // Verificar se o divisor é válido
+    guard divisor != 0 else {
+        print("O divisor não pode ser zero.")
+        return nil
+    }
+    return dividendo / divisor
+}
+
+* O que são loops?
+R: Loops em Swift são estruturas que permitem que um conjunto de instruções seja executado repetidamente até que uma condição seja atendida. O uso de loops é comum em muitos algoritmos e é uma ferramenta poderosa para manipular e processar dados.
+
+* Quais tipos de loops que existem em Swift?
+R: Existem três tipos de loops em Swift
+
+1. for loop: executa um conjunto de instruções um número específico de vezes
+2. while loop: executa um conjunto de instruções enquanto uma condição é verdadeira
+3. repeat-while loop: executa um conjunto de instruções pelo menos uma vez e depois verifica a condição para continuar ou interromper a execução
