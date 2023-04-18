@@ -1,0 +1,45 @@
+Atividade dia 21 Coleções
+Questão 1 a 5
+* Quando devo usar coleções?
+R: As coleções em Swift são usadas para armazenar e gerenciar uma coleção de valores do mesmo tipo. Elas são particularmente úteis quando você precisa manipular várias instâncias do mesmo tipo de forma eficiente. Algumas situações em que você pode usar coleções em Swift incluem:
+
+1. Armazenamento de listas de itens: Quando você precisa armazenar uma lista de itens de um determinado tipo, como nomes de usuários, endereços de e-mail ou números de telefone.
+2. Gerenciamento de dados de formulário: Quando você precisa gerenciar formulários com várias entradas de dados de diferentes tipos e armazená-las em um formato que possa ser facilmente recuperado e manipulado.
+3. Gerenciamento de dados de banco de dados: Quando você precisa trabalhar com conjuntos de dados de um banco de dados e armazená-los em uma estrutura de dados para manipulação posterior.
+4. Gerenciamento de dados da API: Quando você precisa armazenar e gerenciar dados que são recuperados de uma API ou uma fonte externa e manipulá-los de forma programática.
+
+* Quais tipos de coleções existem?
+R: 
+
+1. Arrays
+2. Dictionaries
+3. Sets
+4. Ranges
+
+Além desses tipos coleções básicos, Swift também oferece tipos de coleção especializados, como matrizes multidimensionais para armazenar dados em duas ou mais dimensões e sequências de tuplas, onde cada elemento da sequência é uma tupla contendo vários valores.
+
+
+
+* Quais as diferenças entre eles?
+R: 
+
+1. Arrays: são coleções ordenadas de elementos do mesmo tipo.
+2. Dictionaries: são coleções não ordenadas de pares chave-valor, onde cada chave deve ser única.
+3. Sets: são coleções não ordenadas de elementos únicos do mesmo tipo.
+4. Ranges: são coleções de valores consecutivos em uma sequência, como um intervalo de inteiros.
+
+* Qual a diferença entre coleções mutáveis e imutáveis? 
+R: 
+
+1. Coleções mutáveis, como Array e Dictionary, permitem modificar seus elementos após a criação. Por exemplo, é possível adicionar, remover ou substituir elementos em um array mutável.
+2. Já as coleções imutáveis, como Array e Dictionary com o modificador "let", não permitem a modificação de seus elementos após a criação. Ou seja, o conteúdo não pode ser alterado, adicionado ou removido.
+
+* Onde cada tipo de coleção é mais útil?
+R:
+
+1. Array - é útil para armazenar coleções ordenadas de elementos. É ótimo para acesso aleatório e para iterar sobre todos os elementos em uma ordem previsível.
+2. Set - é útil quando você precisa armazenar uma coleção não ordenada de elementos únicos. É útil, por exemplo, para verificação de duplicatas.
+3. Dictionary - é útil para armazenar pares chave-valor. Isso é útil quando você precisa relacionar uma chave com algum valor, por exemplo, armazenar informações de contato de uma pessoa, onde o nome é a chave e o número de telefone é o valor.
+4. Collection - é uma protocolo que define um conjunto de requisitos comuns para todas as coleções. Isso inclui arrays, sets, dicionários e outros tipos de coleções personalizadas que você possa criar.
+5. Sequence - é um protocolo para coleções que permitem a iteração em seus elementos em uma ordem previsível. Isso também inclui arrays, sets, dicionários e coleções personalizadas.
+
